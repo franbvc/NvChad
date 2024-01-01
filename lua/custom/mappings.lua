@@ -57,11 +57,11 @@ M.tabufline = {
   plugin = true,
   n = {
     -- close buffer + hide terminal buffer (doom bindings)
-    ["<leader>bc"] = {
+    ["<leader>bk"] = {
       function()
         require("nvchad.tabufline").close_buffer()
       end,
-      "Close buffer",
+      "Kill buffer",
     },
   }
 }
