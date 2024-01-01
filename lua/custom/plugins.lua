@@ -1,6 +1,8 @@
 local plugins = {
+  ------------------------------------- debugger ----------------------------------------
   {
     "rcarriga/nvim-dap-ui",
+    event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",
     config = function()
       local dap = require("dap")
@@ -37,8 +39,21 @@ local plugins = {
     end,
   },
   {
+    "jay-babu/mason-nvim-dap.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "williamboman/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      handlers = {},
+    },
+  },
+
+  ------------------------------------- LSP ----------------------------------------
+  {
     "nvimtools/none-ls.nvim",
-    ft = {"python"},
+    ft = {"python", "c", "cpp", "h"},
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -47,6 +62,12 @@ local plugins = {
     "williamboman/mason.nvim",
     opts = {
       ensure_installed = {
+        -- C/C++
+        "clangd",
+        "clang-format",
+        "codelldb",
+
+        -- Python
         "black",
         "debugpy",
         "mypy",

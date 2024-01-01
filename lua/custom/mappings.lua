@@ -6,7 +6,7 @@ M.general = {
     ["<leader>wv"] = { "<cmd> vs <CR>", "Window split vertically" },
 
     -- close window (doom bindings)
-    ["<leader>wc"] = { "<cmd> q <CR>", "Close window"},
+    ["<leader>wc"] = { "<cmd> q <CR>", "Close window" },
 
     -- buffer commands
     ["<leader>b"] = { " ", "Buffer"},
@@ -16,6 +16,9 @@ M.general = {
 
     -- save buffer (doom bindings)
     ["<leader>bs"] = { "<cmd> w <CR>", "Save buffer" },
+
+    -- kill editor
+    ["<leader>k"] = { "<cmd> qa <CR>", "Kill editor" },
   },
 }
 
@@ -37,13 +40,18 @@ M.nvimtree = {
 M.dap = {
   plugin = true,
   n = {
-    ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>", "Toggle Breakpoint"}
+    ["<leader>d"] = {" ", "Debugger"},
+    ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>", "Toggle Breakpoint"},
+    ["<leader>dr"] = {"<cmd> DapContinue <CR>", "Start or continue the debugger"},
+    ["<leader>ds"] = {"<cmd> DapStepOver <CR>", "Step over the debugger"},
+    ["<leader>dk"] = {"<cmd> DapTerminate <CR>", "Kill the debugger"},
   },
 }
 
 M.dap_python = {
   plugin = true,
   n = {
+    ["<leader>dp"] = {" ", "Debugger Python"},
     ["<leader>dpr"] = {
       function()
         require('dap-python').test_method()
