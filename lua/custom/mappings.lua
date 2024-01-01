@@ -53,4 +53,17 @@ M.dap_python = {
   },
 }
 
+M.tabufline = {
+  plugin = true,
+  n = {
+    -- close buffer + hide terminal buffer (doom bindings)
+    ["<leader>bc"] = {
+      function()
+        require("nvchad.tabufline").close_buffer()
+      end,
+      "Close buffer",
+    },
+  }
+}
+
 return M
